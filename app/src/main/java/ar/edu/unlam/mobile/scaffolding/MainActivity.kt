@@ -31,10 +31,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import ar.edu.unlam.mobile.scaffolding.ui.components.BottomBar
 import ar.edu.unlam.mobile.scaffolding.ui.components.SnackbarVisualsWithError
-import ar.edu.unlam.mobile.scaffolding.ui.screens.FormScreen
-import ar.edu.unlam.mobile.scaffolding.ui.screens.HOME_SCREEN_ROUTE
-import ar.edu.unlam.mobile.scaffolding.ui.screens.HomeScreen
-import ar.edu.unlam.mobile.scaffolding.ui.screens.UserScreen
+import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FORM_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FormScreen
+import ar.edu.unlam.mobile.scaffolding.ui.screens.home.HOME_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.home.HomeScreen
+import ar.edu.unlam.mobile.scaffolding.ui.screens.user.USER_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.user.UserScreen
 import ar.edu.unlam.mobile.scaffolding.ui.theme.ScaffoldingV2Theme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -68,7 +70,7 @@ fun MainScreen() {
     Scaffold(
         bottomBar = { BottomBar(controller = controller) },
         floatingActionButton = {
-            IconButton(onClick = { controller.navigate("home") }) {
+            IconButton(onClick = { controller.navigate(HOME_SCREEN_ROUTE) }) {
                 Icon(Icons.Filled.Home, contentDescription = "Home")
             }
         },
@@ -106,24 +108,25 @@ fun MainScreen() {
                 }
             }
         },
-    ) { paddingValue ->
+    ) { // Body del componente principal del Main Activity
+        paddingValue ->
         // NavHost es el componente que funciona como contenedor de los otros componentes que
         // podrán ser destinos de navegación.
         NavHost(navController = controller, startDestination = HOME_SCREEN_ROUTE) {
             // composable es el componente que se usa para definir un destino de navegación.
             // Por parámetro recibe la ruta que se utilizará para navegar a dicho destino.
-            composable("home") {
+            composable(HOME_SCREEN_ROUTE) {
                 // Home es el componente en sí que es el destino de navegación.
-                HomeScreen(modifier = Modifier.padding(paddingValue))
+                HomeScreen()
             }
-            composable("form") {
+            composable(FORM_SCREEN_ROUTE) {
                 FormScreen(
                     modifier = Modifier.padding(paddingValue),
                     snackbarHostState = snackBarHostState,
                 )
             }
             composable(
-                route = "user/{id}",
+                route = USER_SCREEN_ROUTE,
                 arguments = listOf(navArgument("id") { type = NavType.StringType }),
             ) { navBackStackEntry ->
                 val id = navBackStackEntry.arguments?.getString("id") ?: "1"

@@ -1,19 +1,23 @@
 [versions]
-agp = "9.2.0"
-kotlin = "2.3.20"
-coreKtx = "1.18.0"
+agp = "9.4.0"
+kotlin = "2.4.10"
+coreKtx = "1.19.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
-lifecycleRuntimeKtx = "2.10.0"
+lifecycleRuntimeKtx = "2.11.0"
 activityCompose = "1.13.0"
-composeBom = "2026.03.01"
-dagger = "2.59.2"
-ksp = "2.3.2"
-androidXHilt = "1.3.0"
-kover = "0.9.8"
+composeBom = "2026.08.00"
+dagger = "2.60.1"
+ksp = "2.3.6"
+androidXHilt = "1.4.0"
+kover = "0.9.9"
 ktlint = "14.2.0"
 material3 = "1.4.0"
+coil3 = "3.6.1"
+mockitoCore = "5.20.0"
+mockitoKotlin = "5.4.0"
+kotlinxCoroutinesTest = "1.10.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +41,14 @@ androidx-hilt-lifecycle-viewmodel-compose = { group = "androidx.hilt", name = "h
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
 google-dagger-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "dagger" }
 google-dagger-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "dagger" }
+
+io-coil-kt-coil3-coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil3" }
+io-coil-kt-coil3-coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil3" }
+
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

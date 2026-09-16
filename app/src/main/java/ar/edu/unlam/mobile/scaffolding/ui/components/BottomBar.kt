@@ -13,15 +13,16 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import ar.edu.unlam.mobile.scaffolding.ui.screens.FORM_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FORM_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.home.HOME_SCREEN_ROUTE
 
 @Composable
 fun BottomBar(controller: NavHostController) {
     val navBackStackEntry by controller.currentBackStackEntryAsState()
     NavigationBar {
         NavigationBarItem(
-            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == "home" } == true,
-            onClick = { controller.navigate("home") },
+            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == HOME_SCREEN_ROUTE } == true,
+            onClick = { controller.navigate(HOME_SCREEN_ROUTE) },
             icon = {
                 Icon(
                     imageVector = Icons.Default.Home,
@@ -42,8 +43,8 @@ fun BottomBar(controller: NavHostController) {
             },
         )
         NavigationBarItem(
-            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == FORM_ROUTE } == true,
-            onClick = { controller.navigate(FORM_ROUTE) },
+            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == FORM_SCREEN_ROUTE } == true,
+            onClick = { controller.navigate(FORM_SCREEN_ROUTE) },
             icon = {
                 Icon(
                     imageVector = Icons.Default.CheckCircle,

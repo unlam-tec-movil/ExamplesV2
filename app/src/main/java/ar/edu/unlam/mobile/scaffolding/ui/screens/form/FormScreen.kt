@@ -1,4 +1,4 @@
-package ar.edu.unlam.mobile.scaffolding.ui.screens
+package ar.edu.unlam.mobile.scaffolding.ui.screens.form
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardOptions
@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import ar.edu.unlam.mobile.scaffolding.ui.components.SnackbarVisualsWithError
 import kotlinx.coroutines.launch
 
-const val FORM_ROUTE = "form"
+const val FORM_SCREEN_ROUTE = "form"
 
 data class ValidationResult(
     val isValid: Boolean,

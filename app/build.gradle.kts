@@ -22,7 +22,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 android {
     namespace = "ar.edu.unlam.mobile.scaffolding"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ar.edu.unlam.mobile.scaffolding"
@@ -58,6 +58,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    compileSdkMinor = 0
 }
 
 dependencies {
@@ -73,6 +74,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icon)
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -83,9 +87,12 @@ dependencies {
     // Dagger + Hilt
     implementation(libs.google.dagger.hilt.android)
     ksp(libs.google.dagger.hilt.android.compiler)
-    implementation(libs.google.dagger.hilt.android.testing)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     androidTestImplementation(libs.google.dagger.hilt.android.testing)
     testImplementation(libs.google.dagger.hilt.android.testing)
+
+    // Coil
+    implementation(libs.io.coil.kt.coil3.coil.compose)
+    implementation(libs.io.coil.kt.coil3.coil.network.okhttp)
 }
