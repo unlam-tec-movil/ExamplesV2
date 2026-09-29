@@ -22,7 +22,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 android {
     namespace = "ar.edu.unlam.mobile.scaffolding"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ar.edu.unlam.mobile.scaffolding"
