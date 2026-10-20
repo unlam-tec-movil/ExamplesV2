@@ -16,7 +16,7 @@ g# Mobile Scaffolding
 
 Este repositorio se presenta como una referencia para organizar un proyecto de Android. La elección
 de packages está basada en las recomendaciones de android[1].
-
+![image](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.memedroid.com%2Fimages%2FUPLOADED582%2F66006e7c30653.jpeg&f=1&nofb=1&ipt=52b4691557c70da28b2684665c8d1bf538f4746b1c335df2e6c018e9e31d7486)
 ![image](https://github.com/unlam-tec-movil/ScaffoldingV2/assets/5816687/b8a3641e-8c5f-48e0-a995-7a7b9594dae3)
 
 ## Consideraciones previas

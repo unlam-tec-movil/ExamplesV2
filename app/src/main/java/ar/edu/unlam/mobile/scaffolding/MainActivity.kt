@@ -31,6 +31,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import ar.edu.unlam.mobile.scaffolding.ui.components.BottomBar
 import ar.edu.unlam.mobile.scaffolding.ui.components.SnackbarVisualsWithError
+import ar.edu.unlam.mobile.scaffolding.ui.screens.ScannerScreen.SCANNER_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.ScannerScreen.ScannerScreen
+import ar.edu.unlam.mobile.scaffolding.ui.screens.camera.CAMERA_SCREEN_ROUTE
+import ar.edu.unlam.mobile.scaffolding.ui.screens.camera.CameraScreen
 import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FORM_SCREEN_ROUTE
 import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FormScreen
 import ar.edu.unlam.mobile.scaffolding.ui.screens.home.HOME_SCREEN_ROUTE
@@ -144,6 +148,12 @@ fun MainScreen() {
                     },
                     modifier = Modifier.padding(paddingValue),
                 )
+            }
+            composable(CAMERA_SCREEN_ROUTE) {
+                CameraScreen(controller = controller)
+            }
+            composable(SCANNER_SCREEN_ROUTE) {
+                ScannerScreen()
             }
         }
     }

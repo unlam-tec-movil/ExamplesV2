@@ -1,6 +1,7 @@
 package ar.edu.unlam.mobile.scaffolding.ui.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Camera
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -13,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import ar.edu.unlam.mobile.scaffolding.ui.screens.camera.CAMERA_SCREEN_ROUTE
 import ar.edu.unlam.mobile.scaffolding.ui.screens.form.FORM_SCREEN_ROUTE
 import ar.edu.unlam.mobile.scaffolding.ui.screens.home.HOME_SCREEN_ROUTE
 
@@ -48,6 +50,17 @@ fun BottomBar(controller: NavHostController) {
             icon = {
                 Icon(
                     imageVector = Icons.Default.CheckCircle,
+                    contentDescription = "User",
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+            },
+        )
+        NavigationBarItem(
+            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == CAMERA_SCREEN_ROUTE } == true,
+            onClick = { controller.navigate(CAMERA_SCREEN_ROUTE) },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Camera,
                     contentDescription = "User",
                     tint = MaterialTheme.colorScheme.primary,
                 )
