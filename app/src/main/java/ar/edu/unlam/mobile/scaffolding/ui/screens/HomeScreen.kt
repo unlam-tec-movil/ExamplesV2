@@ -1,6 +1,7 @@
 package ar.edu.unlam.mobile.scaffolding.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -20,6 +21,19 @@ fun HomeScreen(
     // "tres vías": Loading, Success y Error. Esto nos permite mostrar un estado de carga,
     // un estado de éxito y un mensaje de error.
     val uiState: HomeUIState by viewModel.uiState.collectAsState()
+    when (val catFactState = uiState.catFactState) {
+        is CatFactUIState.Loading -> {
+            CircularProgressIndicator()
+        }
+
+        is CatFactUIState.Success -> {
+            Text(catFactState.fact)
+        }
+
+        is CatFactUIState.Error -> {
+            // Error
+        }
+    }
 
     when (val helloState = uiState.helloMessageState) {
         is HelloMessageUIState.Loading -> {
