@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.kover)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.kotlin.compose.compiler)
+    kotlin("plugin.serialization") version "2.4.21"
 }
 
 tasks.withType<KotlinCompile>().configureEach {
@@ -79,6 +80,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Retrofit
+    implementation(libs.squareup.retrofit2)
+    implementation(libs.squareup.retrofit2.converter.kotlinx.serialization)
+
+    // Serialization
+    implementation(libs.jetbrains.kotlinx.serialization.json)
 
     // Dagger + Hilt
     implementation(libs.google.dagger.hilt.android)
